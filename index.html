@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok Automation Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="A simple TikTok automation tool for liking, following, and uploading videos.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="TikTok Automation Dashboard">
+    <meta name="twitter:description" content="Automate TikTok interactions with this simple tool.">
+    <meta property="og:title" content="TikTok Automation Dashboard">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Automate TikTok interactions with this simple tool.">
+</head>
+<body class="bg-gray-100 font-sans">
+    <header class="bg-blue-600 text-white p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">TikTok Automation</h1>
+            <nav>
+                <a href="terms.html" class="mr-4 hover:underline">Terms of Service</a>
+                <a href="privacy.html" class="hover:underline">Privacy Policy</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-6">
+        <section class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold mb-4">Automation Dashboard</h2>
+            <p class="mb-4">Use the buttons below to automate TikTok interactions. Ensure you have proper API access or bot configuration.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <button id="likeBtn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Auto Like Videos</button>
+                <button id="followBtn" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Auto Follow Users</button>
+                <button id="uploadBtn" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">Auto Upload Video</button>
+            </div>
+
+            <div class="mt-6">
+                <label for="tiktokUrl" class="block text-sm font-medium text-gray-700">TikTok Video/User URL</label>
+                <input type="text" id="tiktokUrl" class="mt-1 p-2 w-full border rounded" placeholder="Enter TikTok URL">
+            </div>
+            <div class="mt-4">
+                <label for="actionCount" class="block text-sm font-medium text-gray-700">Number of Actions</label>
+                <input type="number" id="actionCount" class="mt-1 p-2 w-full border rounded" placeholder="e.g., 10" min="1">
+            </div>
+            <button id="startAutomation" class="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Start Automation</button>
+
+            <div id="status" class="mt-4 text-gray-700"></div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        <p>&copy; 2025 TikTok Automation. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Placeholder for automation logic
+        document.getElementById('likeBtn').addEventListener('click', () => {
+            const url = document.getElementById('tiktokUrl').value;
+            const count = document.getElementById('actionCount').value;
+            document.getElementById('status').innerText = `Preparing to auto-like ${count} videos for URL: ${url}. (Implement server-side logic with TikTok API or Selenium.)`;
+            // TODO: Call server-side API or bot to perform likes
+            // Example: fetch('/api/like', { method: 'POST', body: JSON.stringify({ url, count }) })
+        });
+
+        document.getElementById('followBtn').addEventListener('click', () => {
+            const url = document.getElementById('tiktokUrl').value;
+            const count = document.getElementById('actionCount').value;
+            document.getElementById('status').innerText = `Preparing to auto-follow ${count} users for URL: ${url}. (Implement server-side logic with TikTok API or Selenium.)`;
+            // TODO: Call server-side API or bot to perform follows
+        });
+
+        document.getElementById('uploadBtn').addEventListener('click', () => {
+            const url = document.getElementById('tiktokUrl').value;
+            document.getElementById('status').innerText = `Preparing to upload video to TikTok. (Implement server-side logic with TikTok API or Selenium.)`;
+            // TODO: Call server-side API or bot to upload video
+        });
+
+        document.getElementById('startAutomation').addEventListener('click', () => {
+            const url = document.getElementById('tiktokUrl').value;
+            const count = document.getElementById('actionCount').value;
+            if (!url || !count) {
+                document.getElementById('status').innerText = 'Please enter a valid TikTok URL and number of actions.';
+                return;
+            }
+            document.getElementById('status').innerText = `Starting automation for ${count} actions on ${url}. (Connect to backend for actual automation.)`;
+            // TODO: Integrate with backend server for actual automation
+        });
+    </script>
+</body>
+</html>
